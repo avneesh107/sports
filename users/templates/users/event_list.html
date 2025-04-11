@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+{% block content %}
+{% for event in events %}
+  <h2>{{ event.sport }} - {{ event.get_gender_display }}</h2>
+  <a href="{% url 'join_event' event.id %}">Join Event</a>
+  
+  {% for team in teams%}
+  
+    {% if team.event.name == event.name %}
+    {% if team.college.name == profile.college.name %}
+    <h3>College Name: {{ team.college.name }}</h3>
+    <h4>Team Members are:-</h4>
+    <ul>
+        {% for member in team.members.all %}
+          <li>{{ member.user.username}} </li>
+       
+        {% endfor %}
+       
+      </ul>
+    {% endif %}
+    {% endif %}
+  {% endfor %}
+    
+  <hr>
+{% endfor %}
+{% endblock %}
+
+</body>
+</html>

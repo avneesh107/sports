@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-sm rounded p-4">
+            <h2 class="mb-4">Participants from {{ college.name }}</h2>
+            <ul>
+            {% for participant in participants %}
+                <li>{{ participant.user }} </li>
+            {% empty %}
+                <li>No participants found.</li>
+            {% endfor %}
+            </ul>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!-- users/templates/users/team_members.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Team Members</title>
+</head>
+<body>
+    <h2>
+        Members of {{ team.college.name }} - {{ team.event.name }} ({{ team.event.gender }})
+    </h2>
+
+    {% if members %}
+        <ul>
+            {% for member in members %}
+                <li>
+                    {{ member.user.username }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No members in this team.</p>
+    {% endif %}
+
+    
+</body>
+</html>
